@@ -26,7 +26,7 @@
 #define HAS_GSL 1
 
 /* set to 1 if gtk3 installed */
-/* #undef HAS_GTK3 */
+#define HAS_GTK3 1
 
 /* set to 1 if pulseaudio installed */
 #define HAS_PULSEAUDIO 1

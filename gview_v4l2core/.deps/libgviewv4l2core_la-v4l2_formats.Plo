@@ -79,8 +79,8 @@ libgviewv4l2core_la-v4l2_formats.lo: v4l2_formats.c \
  /usr/include/arm-linux-gnueabihf/bits/types/struct_itimerspec.h \
  /usr/include/arm-linux-gnueabihf/bits/setjmp.h ../includes/../config.h \
  v4l2_formats.h gviewv4l2core.h /usr/include/linux/uvcvideo.h \
- /usr/include/linux/media.h /usr/include/linux/version.h \
- /usr/include/libudev.h /usr/include/arm-linux-gnueabihf/sys/sysmacros.h \
+ /usr/include/linux/media.h /usr/include/libudev.h \
+ /usr/include/arm-linux-gnueabihf/sys/sysmacros.h \
  /usr/include/arm-linux-gnueabihf/bits/sysmacros.h v4l2_core.h
 
 /usr/include/stdc-predef.h:
@@ -292,8 +292,6 @@ gviewv4l2core.h:
 /usr/include/linux/uvcvideo.h:
 
 /usr/include/linux/media.h:
-
-/usr/include/linux/version.h:
 
 /usr/include/libudev.h:
 

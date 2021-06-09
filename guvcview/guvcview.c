@@ -28,6 +28,7 @@
 #include <sys/stat.h>
 #include <sys/resource.h>
 #include <errno.h>
+#include <time.h>
 
 #include "gview.h"
 #include "gviewv4l2core.h"
@@ -41,6 +42,7 @@
 #include "config.h"
 #include "gui.h"
 #include "core_io.h"
+
 
 int debug_level = 0;
 
@@ -56,6 +58,57 @@ __COND_TYPE capture_cond;
  *
  * return: none
  */
+void error_save(char* error_name){
+	// get linux env error file path
+	char *file_path_temp = getenv("WHEELKERBELL_ERROR_PATH");	
+	char file_path[200] = "";
+	char file_name[30] = "/.wheelkerbell_error.log";
+
+	if(file_path_temp == NULL){
+		file_path_temp = "/var/log";
+	}
+
+	strcpy(file_path, file_path_temp);
+	strcat(file_path, file_name);
+
+	// device code process
+	char device_code[9] = "";
+	char config_path[200] = "";
+	char config_name[30] = "/wheelkerbell.config";
+
+	strcpy(config_path, file_path_temp);
+	strcat(config_path, config_name);
+
+	FILE *fp2;
+	char buffer[26] = "";
+	fp2 = fopen(config_path, "r");
+
+	fgets(buffer, sizeof(buffer), fp2);
+
+	int pos = 0;
+	for(int i = 17; i <26; i++){
+		device_code[pos] = buffer[i];
+		pos++;
+	}
+
+	fclose(fp2);
+
+	
+	// time process
+	time_t t = time(NULL);
+	struct tm tm = *localtime(&t);
+	char time_now[100] = "";
+	strftime(time_now, sizeof(time_now),"%Y.%m.%d %I:%M:%S", &tm);
+
+	// error file save process
+	FILE *fp;
+	fp = fopen(file_path, "a");
+
+	fprintf(fp, "[%s/%s/%s]\n", time_now, device_code, error_name);
+
+	fclose(fp);
+}
+
 void signal_callback_handler(int signum)
 {
 	printf("GUVCVIEW Caught signal %d\n", signum);
@@ -77,10 +130,6 @@ void signal_callback_handler(int signum)
 			break;
 	}
 }
-
-//void error_write(string error_name){
-//	string path = getenv("")
-//}
 
 int main(int argc, char *argv[])
 {
@@ -253,6 +302,7 @@ int main(int argc, char *argv[])
 		char message[50];
 		snprintf(message, 49, "no video device (%s) found", my_options->device);
 		gui_error("Guvcview error", "no video device found", 1);
+    	error_save("WSE_004");
 		options_clean();
 		return -1;
 	}
@@ -386,6 +436,7 @@ int main(int argc, char *argv[])
 				fprintf(stderr, "GUVCVIEW: Video capture failed\n");
 
 				gui_error("Guvcview error", "could not start a video stream in the device", 1);
+    			error_save("WSE_005");
 			}
 		}
 
@@ -404,6 +455,7 @@ int main(int argc, char *argv[])
 			{
 				fprintf(stderr, "GUVCVIEW: Video thread creation failed\n");
 				gui_error("Guvcview error", "could not start the video capture thread", 1);
+    			error_save("WSE_006");
 			}
 			else if(debug_level > 2)
 				printf("GUVCVIEW: created capture thread with tid: %u\n", (unsigned int) capture_thread);

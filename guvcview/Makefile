@@ -91,13 +91,13 @@ POST_UNINSTALL = :
 build_triplet = armv7l-unknown-linux-gnueabihf
 host_triplet = armv7l-unknown-linux-gnueabihf
 bin_PROGRAMS = guvcview$(EXEEXT)
-#am__append_1 = gui_gtk3.c \
-#				   gui_gtk3_menu.c \
-#				   gui_gtk3_v4l2ctrls.c \
-#				   gui_gtk3_h264ctrls.c \
-#				   gui_gtk3_videoctrls.c \
-#				   gui_gtk3_audioctrls.c \
-#				   gui_gtk3_callbacks.c
+am__append_1 = gui_gtk3.c \
+				   gui_gtk3_menu.c \
+				   gui_gtk3_v4l2ctrls.c \
+				   gui_gtk3_h264ctrls.c \
+				   gui_gtk3_videoctrls.c \
+				   gui_gtk3_audioctrls.c \
+				   gui_gtk3_callbacks.c
 
 #am__append_2 = moc_gui_qt5.cpp \
 #				   gui_qt5.cpp \
@@ -108,8 +108,8 @@ bin_PROGRAMS = guvcview$(EXEEXT)
 #				   gui_qt5_audioctrls.cpp \
 #				   gui_qt5_callbacks.cpp
 
-#am__append_3 = $(GUIGTK3_CFLAGS)
-#am__append_4 = $(GUIGTK3_LIBS)
+am__append_3 = $(GUIGTK3_CFLAGS)
+am__append_4 = $(GUIGTK3_LIBS)
 #am__append_5 = $(GUIQT5_LIBS)
 subdir = guvcview
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -135,13 +135,13 @@ am__guvcview_SOURCES_DIST = guvcview.c video_capture.c core_io.c \
 	gui_qt5_menu.cpp gui_qt5_v4l2ctrls.cpp gui_qt5_h264ctrls.cpp \
 	gui_qt5_videoctrls.cpp gui_qt5_audioctrls.cpp \
 	gui_qt5_callbacks.cpp
-#am__objects_1 = guvcview-gui_gtk3.$(OBJEXT) \
-#	guvcview-gui_gtk3_menu.$(OBJEXT) \
-#	guvcview-gui_gtk3_v4l2ctrls.$(OBJEXT) \
-#	guvcview-gui_gtk3_h264ctrls.$(OBJEXT) \
-#	guvcview-gui_gtk3_videoctrls.$(OBJEXT) \
-#	guvcview-gui_gtk3_audioctrls.$(OBJEXT) \
-#	guvcview-gui_gtk3_callbacks.$(OBJEXT)
+am__objects_1 = guvcview-gui_gtk3.$(OBJEXT) \
+	guvcview-gui_gtk3_menu.$(OBJEXT) \
+	guvcview-gui_gtk3_v4l2ctrls.$(OBJEXT) \
+	guvcview-gui_gtk3_h264ctrls.$(OBJEXT) \
+	guvcview-gui_gtk3_videoctrls.$(OBJEXT) \
+	guvcview-gui_gtk3_audioctrls.$(OBJEXT) \
+	guvcview-gui_gtk3_callbacks.$(OBJEXT)
 #am__objects_2 = guvcview-moc_gui_qt5.$(OBJEXT) \
 #	guvcview-gui_qt5.$(OBJEXT) \
 #	guvcview-gui_qt5_menu.$(OBJEXT) \
@@ -156,7 +156,7 @@ am_guvcview_OBJECTS = guvcview-guvcview.$(OBJEXT) \
 	guvcview-gui.$(OBJEXT) $(am__objects_1) $(am__objects_2)
 guvcview_OBJECTS = $(am_guvcview_OBJECTS)
 am__DEPENDENCIES_1 =
-#am__DEPENDENCIES_2 = $(am__DEPENDENCIES_1)
+am__DEPENDENCIES_2 = $(am__DEPENDENCIES_1)
 #am__DEPENDENCIES_3 = $(am__DEPENDENCIES_1)
 guvcview_DEPENDENCIES =  \
 	../gview_v4l2core/$(GVIEWV4L2CORE_LIBRARY_NAME).la \
@@ -312,8 +312,8 @@ GMSGFMT = /usr/bin/msgfmt
 GREP = /bin/grep
 GSL_CFLAGS = 
 GSL_LIBS = -lgsl -lgslcblas -lm
-GUIGTK3_CFLAGS = 
-GUIGTK3_LIBS = 
+GUIGTK3_CFLAGS = -pthread -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/fribidi -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include
+GUIGTK3_LIBS = -lgtk-3 -lgdk-3 -lpangocairo-1.0 -lpango-1.0 -latk-1.0 -lcairo-gobject -lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lgobject-2.0 -lglib-2.0
 GUIQT5_CFLAGS = 
 GUIQT5_LIBS = 
 GVIEWAUDIO_API_VERSION = 2.0
@@ -335,11 +335,11 @@ GVIEWRENDER_LIBRARY_NAME = libgviewrender
 GVIEWRENDER_LIBRARY_VERSION = 2:0:0
 GVIEWRENDER_LIBS = -lSDL2
 GVIEWV4L2CORE_API_VERSION = 2.0
-GVIEWV4L2CORE_CFLAGS = -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -I/usr/include/libpng12
+GVIEWV4L2CORE_CFLAGS = -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -I/usr/include/libpng16
 GVIEWV4L2CORE_LD_NAME = gviewv4l2core
 GVIEWV4L2CORE_LIBRARY_NAME = libgviewv4l2core
 GVIEWV4L2CORE_LIBRARY_VERSION = 2:0:0
-GVIEWV4L2CORE_LIBS = -lv4l2 -ludev -lusb-1.0 -lavcodec -lavutil -lpng12
+GVIEWV4L2CORE_LIBS = -lv4l2 -ludev -lusb-1.0 -lavcodec -lavutil -lpng16 -lz
 INSTALL = /usr/bin/install -c
 INSTALL_DATA = ${INSTALL} -m 644
 INSTALL_PROGRAM = ${INSTALL}
@@ -457,7 +457,7 @@ mandir = ${datarootdir}/man
 mkdir_p = $(MKDIR_P)
 oldincludedir = /usr/include
 pdfdir = ${docdir}
-prefix = /usr/local
+prefix = /usr
 program_transform_name = s,x,x,
 psdir = ${docdir}
 runstatedir = ${localstatedir}/run

@@ -82,8 +82,7 @@ libgviewv4l2core_la-v4l2_controls.lo: v4l2_controls.c \
  /usr/include/assert.h /usr/include/locale.h \
  /usr/include/arm-linux-gnueabihf/bits/locale.h /usr/include/libintl.h \
  gviewv4l2core.h /usr/include/linux/uvcvideo.h /usr/include/linux/media.h \
- /usr/include/linux/version.h /usr/include/libudev.h \
- /usr/include/arm-linux-gnueabihf/sys/sysmacros.h \
+ /usr/include/libudev.h /usr/include/arm-linux-gnueabihf/sys/sysmacros.h \
  /usr/include/arm-linux-gnueabihf/bits/sysmacros.h /usr/include/pthread.h \
  /usr/include/sched.h /usr/include/arm-linux-gnueabihf/bits/sched.h \
  /usr/include/arm-linux-gnueabihf/bits/types/struct_sched_param.h \
@@ -300,8 +299,6 @@ gviewv4l2core.h:
 /usr/include/linux/uvcvideo.h:
 
 /usr/include/linux/media.h:
-
-/usr/include/linux/version.h:
 
 /usr/include/libudev.h:
 

@@ -191,13 +191,15 @@ lt_cv_to_tool_file_cmd=${lt_cv_to_tool_file_cmd=func_convert_file_noop}
 lt_cv_truncate_bin=${lt_cv_truncate_bin='/bin/dd bs=4096 count=1'}
 pkg_cv_GSL_CFLAGS=${pkg_cv_GSL_CFLAGS=}
 pkg_cv_GSL_LIBS=${pkg_cv_GSL_LIBS='-lgsl -lgslcblas -lm'}
+pkg_cv_GUIGTK3_CFLAGS=${pkg_cv_GUIGTK3_CFLAGS='-pthread -I/usr/include/gtk-3.0 -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/fribidi -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include'}
+pkg_cv_GUIGTK3_LIBS=${pkg_cv_GUIGTK3_LIBS='-lgtk-3 -lgdk-3 -lpangocairo-1.0 -lpango-1.0 -latk-1.0 -lcairo-gobject -lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lgobject-2.0 -lglib-2.0'}
 pkg_cv_GVIEWAUDIO_CFLAGS=${pkg_cv_GVIEWAUDIO_CFLAGS=-pthread}
 pkg_cv_GVIEWAUDIO_LIBS=${pkg_cv_GVIEWAUDIO_LIBS='-lportaudio -lasound -lm -lpthread'}
 pkg_cv_GVIEWENCODER_CFLAGS=${pkg_cv_GVIEWENCODER_CFLAGS=-I/usr/include/arm-linux-gnueabihf}
 pkg_cv_GVIEWENCODER_LIBS=${pkg_cv_GVIEWENCODER_LIBS='-lavcodec -lavutil'}
 pkg_cv_GVIEWRENDER_CFLAGS=${pkg_cv_GVIEWRENDER_CFLAGS='-D_REENTRANT -I/usr/include/SDL2 -I/opt/vc/include -I/opt/vc/include/interface/vcos/pthreads -I/opt/vc/include/interface/vmcs_host/linux'}
 pkg_cv_GVIEWRENDER_LIBS=${pkg_cv_GVIEWRENDER_LIBS=-lSDL2}
-pkg_cv_GVIEWV4L2CORE_CFLAGS=${pkg_cv_GVIEWV4L2CORE_CFLAGS='-I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -I/usr/include/libpng12'}
-pkg_cv_GVIEWV4L2CORE_LIBS=${pkg_cv_GVIEWV4L2CORE_LIBS='-lv4l2 -ludev -lusb-1.0 -lavcodec -lavutil -lpng12'}
+pkg_cv_GVIEWV4L2CORE_CFLAGS=${pkg_cv_GVIEWV4L2CORE_CFLAGS='-I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -I/usr/include/libpng16'}
+pkg_cv_GVIEWV4L2CORE_LIBS=${pkg_cv_GVIEWV4L2CORE_LIBS='-lv4l2 -ludev -lusb-1.0 -lavcodec -lavutil -lpng16 -lz'}
 pkg_cv_PULSE_CFLAGS=${pkg_cv_PULSE_CFLAGS=-D_REENTRANT}
 pkg_cv_PULSE_LIBS=${pkg_cv_PULSE_LIBS=-lpulse}
